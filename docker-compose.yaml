@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  server:
+    image: 'nginx:stable-alpine'
+    ports:
+      - '8000:80'
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - ngrok
+      - php
+      - mysql
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./:/var/www/html:delegated
+  mysql:
+    image: 'mysql:8.0.27'
+    volumes:
+      - mysql_db:/var/lib/mysql
+    env_file:
+      - ./env/mysql.env
+  composer:
+    build:
+      context: ./dockerfiles
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./:/var/www/html
+  artisan:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./:/var/www/html
+    entrypoint: ["php", "/var/www/html/artisan"]
+  # Optional
+  # npm:
+  #   image: node:16
+  #   working_dir: /var/www/html
+  #   entrypoint: ["npm"]
+  #   volumes:
+  #     - ./:/var/www/html
+  ngrok:
+    image: 'wernight/ngrok:latest'
+    ports:
+      - '4040:4040'
+    env_file:
+      - ./env/ngrok.env
+
+volumes:
+  mysql_db:

@@ -56,3 +56,5 @@ public/css
 public/js
 
 .env
+env/mysql.env
+env/ngrok.env
