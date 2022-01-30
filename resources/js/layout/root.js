@@ -1,5 +1,5 @@
 import {AppProvider, TopBar, Navigation, Frame} from "@shopify/polaris";
-import {HomeMajor, EditMajor, SettingsMajor, CustomersMajor} from "@shopify/polaris-icons";
+import {HomeMajor, EditMajor, SettingsMajor, CustomersMajor, ExchangeMajor} from "@shopify/polaris-icons";
 import React, {useState, useCallback} from "react";
 import {useLocation} from 'react-router-dom'
 import {ThemeContext} from './app';
@@ -13,6 +13,8 @@ import Dashboard from "../pages/dashboard";
 import Customizations from "../pages/customizations";
 import Settings from "../pages/settings";
 import AccountDetails from "../pages/account-details";
+import ChangeLog from "../pages/changelog";
+
 
 function Root() {
     const contextType = ThemeContext;
@@ -77,6 +79,13 @@ function Root() {
                         selected: links.account.active,
                         onClick: () => navigateRoutes(links.account.url)
                     },
+                    {
+                        url: "#",
+                        label: 'Changelog',
+                        icon: ExchangeMajor,
+                        selected: links.changelog.active,
+                        onClick: () => navigateRoutes("/changelog")
+                    },
                 ]}
             />
         </Navigation>
@@ -109,6 +118,7 @@ function Root() {
                     <Route path={links.customizations.url} element={<Customizations navigateRoutes={navigateRoutes}/>}/>
                     <Route path={links.settings.url} element={<Settings navigateRoutes={navigateRoutes}/>}/>
                     <Route path={links.account.url} element={<AccountDetails navigateRoutes={navigateRoutes}/>}/>
+                    <Route path={links.changelog.url} element={<ChangeLog navigateRoutes={navigateRoutes} />}/>
                 </Routes>
             </Frame>
         </AppProvider>
