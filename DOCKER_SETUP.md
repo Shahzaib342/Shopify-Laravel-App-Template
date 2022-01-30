@@ -24,7 +24,7 @@ Assuming you already have cloned the repo, you need to update the following conf
     - Copy the contents of `env/example.ngrok.env` to `env/ngrok.env`
     - Replace the `NGROK_AUTH` placeholder with your Ngrok Auth key. You need to sign up to Ngrok.io to get your auth key
 3. #### Shopify App Credentials
-    - Obtain Shopify credentials from partner dashboard and update the relevant `SHOPIFY_*` fields in the `.env` file of your project
+    - Obtain Shopify credentials from partner dashboard and update the relevant `SHOPIFY_*` fields in the `.env` file of your project as well as the config/shopify-app.php
 
 ## Step 2: Running Docker Containers
 

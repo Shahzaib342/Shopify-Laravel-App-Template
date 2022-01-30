@@ -1,5 +1,5 @@
-import React from 'react';
-import {Card, Page} from '@shopify/polaris';
+import React from "react";
+import {Page} from '@shopify/polaris';
 
 function Dashboard() {
     return (
@@ -7,8 +7,6 @@ function Dashboard() {
             fullWidth
             title="Dashboard"
         >
-            <Card>
-            </Card>
         </Page>
     );
 }

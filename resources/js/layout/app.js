@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import Root from "./Root";
+import Root from "./root";
 
 const linkItems = {
     "dashboard": {url: '/', active: true},

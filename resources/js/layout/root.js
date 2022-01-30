@@ -3,15 +3,16 @@ import {HomeMajor, EditMajor, SettingsMajor, CustomersMajor} from "@shopify/pola
 import React, {useState, useCallback} from "react";
 import {useLocation} from 'react-router-dom'
 import {ThemeContext} from './app';
+import enTranslations from '@shopify/polaris/locales/en.json';
 import {
     Routes,
     Route,
     useNavigate
 } from "react-router-dom";
-import Dashboard from "./dashboard";
-import Customizations from "./customizations";
-import Settings from "./settings";
-import AccountDetails from "./account-details";
+import Dashboard from "../pages/dashboard";
+import Customizations from "../pages/customizations";
+import Settings from "../pages/settings";
+import AccountDetails from "../pages/account-details";
 
 function Root() {
     const contextType = ThemeContext;
@@ -95,24 +96,7 @@ function Root() {
     return (
         <AppProvider
             theme={theme}
-            i18n={{
-                Polaris: {
-                    Avatar: {
-                        label: 'Avatar',
-                        labelWithInitials: 'Avatar with initials {initials}',
-                    },
-                    TopBar: {
-                        toggleMenuLabel: 'Toggle menu',
-                    },
-                    Frame: {
-                        skipToContent: 'Skip to content',
-                        navigationLabel: 'Navigation',
-                        Navigation: {
-                            closeMobileNavigationLabel: 'Close navigation',
-                        },
-                    },
-                },
-            }}
+            i18n={enTranslations}
         >
             <Frame
                 topBar={topBarMarkup}

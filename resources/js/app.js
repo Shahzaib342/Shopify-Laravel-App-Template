@@ -13,4 +13,4 @@ require('./bootstrap');
  */
 
 
-require('./components/app')
+require('./layout/app')
