@@ -37,7 +37,7 @@ Create a .env file and paste content of .env.example
 
 Replace the `APP_URL` in .env with your ngrok Https Url.
 
-Change SHOPIFY_API_KEY and SHOPIFY_API_SECRET in .env file
+Change APP_NAME, SHOPIFY_APP_NAME, SHOPIFY_API_KEY and SHOPIFY_API_SECRET in .env file
 
 Create the database whatever name you like and add the details in .env file
 
